@@ -1,4 +1,3 @@
-# MiniProject
 🌱 Crop Disease Detection System
 
 An AI-powered web application that detects plant diseases from leaf images using Deep Learning.
@@ -24,7 +23,9 @@ Includes training history (training_hist.json) with accuracy and loss metrics.
 📊 Model Performance
 
 Training Accuracy: 98%
+
 Validation Accuracy: 97%
+
 Validation Loss: 0.17
 
 📈 Accuracy improves steadily across epochs, with minimal overfitting.
@@ -39,50 +40,74 @@ Validation Loss: 0.17
 ⚙️ Installation
 
 Clone the repository:
+
 git clone https://github.com/your-username/crop-disease-detection.git
 cd crop-disease-detection
 
+
 Create a virtual environment (recommended):
+
 python -m venv venv
 source venv/bin/activate   # Linux/Mac
 venv\Scripts\activate      # Windows
 
+
 Install dependencies:
+
 pip install -r requirements.txt
 
 ▶️ Usage
 
 Train the model (if not already trained):
+
 Open and run Train.ipynb to train the CNN model.
+
 The trained model will be saved as trained_plant_disease_model.keras.
 
 Run the app:
+
 streamlit run main.py
 
+
 Use the Web App:
+
 Go to the Disease Detection page.
+
 Upload a leaf image (jpg/png).
+
 Click Predict to see the detected disease and confidence score.
 
 🧑‍💻 Tech Stack
 
 Frontend/UI: Streamlit
+
 Deep Learning: TensorFlow, Keras
+
 Data Handling: NumPy, Pandas
+
 Image Processing: PIL
+
 Visualization: Matplotlib (for training insights)
 
 🌾 Supported Classes
 
 Apple: Apple Scab, Black Rot, Cedar Apple Rust, Healthy
+
 Corn (Maize): Cercospora Leaf Spot, Common Rust, Northern Leaf Blight, Healthy
+
 Grape: Black Rot, Esca, Leaf Blight, Healthy
+
 Potato: Early Blight, Late Blight, Healthy
+
 Tomato: Bacterial Spot, Early/Late Blight, Leaf Mold, Septoria, Target Spot, Yellow Leaf Curl Virus, Mosaic Virus, Healthy
+
 Others: Blueberry, Cherry, Orange, Peach, Pepper, Raspberry, Soybean, Squash, Strawberry
+
 
 🌟 Acknowledgements
 
 PlantVillage Dataset
+
 TensorFlow/Keras for deep learning
+
 Streamlit for interactive app deployment
