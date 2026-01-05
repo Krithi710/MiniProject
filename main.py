@@ -3,14 +3,25 @@ import tensorflow as tf
 import numpy as np
 from PIL import Image
 
+@st.cache_resource
+def load_model():
+    return tf.keras.models.load_model("trained_plant_disease_model.keras.h5")
+
+model = load_model()
+
 # TensorFlow Model Prediction
 def model_prediction(test_image):
-    model = tf.keras.models.load_model("trained_plant_disease_model.h5")
-    image = tf.keras.preprocessing.image.load_img(test_image, target_size=(128, 128))
-    input_arr = tf.keras.preprocessing.image.img_to_array(image)
-    input_arr = np.array([input_arr])  # Convert single image to batch
-    predictions = model.predict(input_arr)
-    return predictions  # Return the prediction array
+    image = pil_image.resize((128, 128))
+    image = np.array(image) / 255.0
+    image = np.expand_dims(image, axis=0)
+    predictions = model.predict(image)
+    return predictions
+    #model = tf.keras.models.load_model("trained_plant_disease_model.keras.h5")
+    #image = tf.keras.preprocessing.image.load_img(test_image, target_size=(128, 128))
+    #input_arr = tf.keras.preprocessing.image.img_to_array(image)
+    #input_arr = np.array([input_arr])  # Convert single image to batch
+    #predictions = model.predict(input_arr)
+    #return predictions  # Return the prediction array
 # Streamlit Theme Customization
 st.set_page_config(page_title="Plant Disease Detection", page_icon="🌿", layout="wide", initial_sidebar_state="expanded")
 st.markdown(
@@ -136,5 +147,6 @@ elif app_mode == "Disease Detection":
     else:
 
         st.info("📁 Please upload an image to get a prediction.")
+
 
 
