@@ -5,7 +5,7 @@ from PIL import Image
 
 @st.cache_resource
 def load_model():
-    return tf.keras.models.load_model("trained_plant_disease_model.keras.h5")
+    return tf.keras.models.load_model("trained_plant_disease_model.keras")
 
 model = load_model()
 
@@ -147,6 +147,7 @@ elif app_mode == "Disease Detection":
     else:
 
         st.info("📁 Please upload an image to get a prediction.")
+
 
 
 
