@@ -58,7 +58,7 @@ app_mode = st.sidebar.selectbox("Select Page", ["Home", "About", "Disease Detect
 # Main Page
 if app_mode == "Home":
     st.header("🌱 Plant Disease Detection System 🌱")
-    st.image(r"C:\Users\krith\Downloads\farmer.png", width=300)  # Adjust the width as per your requirement
+    st.image(r"farmer.png", width=300)  # Adjust the width as per your requirement
     st.markdown("""
     Welcome to the **Plant Disease Detection System**! 🌿🔍
     This tool uses advanced machine learning techniques to help you identify plant diseases.
