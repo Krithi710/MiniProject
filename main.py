@@ -135,7 +135,7 @@ elif app_mode == "Disease Detection":
                 #confidence_threshold = 0.75  # Set your desired confidence threshold here
 
                 #if confidence > confidence_threshold:
-                    st.success(f"🌟 **Prediction:** {class_name[result_index]} with confidence {confidence:.2f}")
+                st.success(f"🌟 **Prediction:** {class_name[result_index]} with confidence {confidence:.2f}")
                 #else:
                     #st.warning("⚠️ The model is not confident enough in its prediction. Please try another image.")
     else:
