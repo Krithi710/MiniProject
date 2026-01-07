@@ -132,11 +132,11 @@ elif app_mode == "Disease Detection":
                     'Tomato___Tomato_Yellow_Leaf_Curl_Virus', 'Tomato___Tomato_mosaic_virus', 'Tomato___healthy'
                 ]
 
-                confidence_threshold = 0.75  # Set your desired confidence threshold here
+                #confidence_threshold = 0.75  # Set your desired confidence threshold here
 
-                if confidence > confidence_threshold:
+                #if confidence > confidence_threshold:
                     st.success(f"🌟 **Prediction:** {class_name[result_index]} with confidence {confidence:.2f}")
-                else:
-                    st.warning("⚠️ The model is not confident enough in its prediction. Please try another image.")
+                #else:
+                    #st.warning("⚠️ The model is not confident enough in its prediction. Please try another image.")
     else:
         st.info("📁 Please upload an image to get a prediction.")
