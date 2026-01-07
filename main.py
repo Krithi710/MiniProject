@@ -12,7 +12,7 @@ model = load_model()
 # TensorFlow Model Prediction
 def model_prediction(image):
     image = image.resize((128, 128))
-    input_arr = np.array(image) / 255.0
+    input_arr = np.array(image)
     input_arr = np.expand_dims(input_arr, axis=0)
     predictions = model.predict(input_arr)
     return predictions  # Return the prediction array
