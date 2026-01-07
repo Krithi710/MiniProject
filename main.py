@@ -3,12 +3,17 @@ import tensorflow as tf
 import numpy as np
 from PIL import Image
 
+@st.cache_resource
+def load_model():
+    return tf.keras.models.load_model("trained_plant_disease_model.keras")
+
+model = load_model()
+
 # TensorFlow Model Prediction
-def model_prediction(test_image):
-    model = tf.keras.models.load_model("trained_plant_disease_model.keras")
-    image = tf.keras.preprocessing.image.load_img(test_image, target_size=(128, 128))
-    input_arr = tf.keras.preprocessing.image.img_to_array(image)
-    input_arr = np.array([input_arr])  # Convert single image to batch
+def model_prediction(image):
+    image = image.resize((128, 128))
+    input_arr = np.array(image) / 255.0
+    input_arr = np.expand_dims(input_arr, axis=0)
     predictions = model.predict(input_arr)
     return predictions  # Return the prediction array
 
@@ -108,7 +113,7 @@ elif app_mode == "Disease Detection":
         with st.spinner('Analyzing the image...'):
             # Predict button
             if st.button("Predict"):
-                predictions = model_prediction(test_image)
+                predictions = model_prediction(image)
                 confidence = np.max(predictions)  # Get the highest confidence score
                 result_index = np.argmax(predictions)  # Get the index of the highest confidence score
 # Reading Labels
